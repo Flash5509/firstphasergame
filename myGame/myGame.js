@@ -10,14 +10,14 @@ game_state.main.prototype = {
 	preload: function() {
 		game.load.image('sky', 'assets/nightsky.png');
 		game.load.image('ground', 'assets/platform.png');
-		game.load.image('taco', 'assets/taco.png');
-		game.load.spritesheet('dude', 'assets/Cow.png', 100, 100);
+		game.load.image('star', 'assets/taco.png');
+		game.load.spritesheet('dude', 'assets/Cow.png', 123, 123);
 
 	},
 
 	create: function() {
 		game.add.sprite(0, 0, 'sky');
-		game.add.sprite(0, 0, 'taco');
+		game.add.sprite(0, 0, 'star');
 		
 		this.platforms = game.add.group();
 		this.platforms.enableBody = true;
@@ -43,8 +43,8 @@ game_state.main.prototype = {
 		this.player.body.bounce.y = 0.2;
 		this.player.body.gravity.y = 300;
 		this.player.body.collideWorldBounds = true;
-		this.player.animations.add('left', [1, 2], 4, true);
-		this.player.animations.add('right', [3, 4], 4, true);
+		this.player.animations.add('left', [0, 1], 3, true);
+		this.player.animations.add('right', [3], 3, true);
         this.player.scale.setTo(0.7, 0.7);
         this.player.body.setSize(70, 80, 20, 15)
 		this.cursors = game.input.keyboard.createCursorKeys();
@@ -52,9 +52,11 @@ game_state.main.prototype = {
 		this.stars.enableBody = true; 
 		
 		for (var i = 0; i < 60; i++) {
-			var star = this.stars.create(i * 80, 0, 'taco');
+			 var star = this.stars.create(i * 80, 0, 'star');
 			star.body.gravity.y = 300;
 			star.body.bounce.y = 0.70 + Math.random() * 0.2;
+			game.debug.body(star);
+			star.body.setSize(25, 25, 0, 0)
 			
 		}
 
@@ -93,6 +95,10 @@ game_state.main.prototype = {
 		}
 
 		game.physics.arcade.overlap(this.player, this.stars, this.collectStar, null, this);
+		if (this.score >= 5){
+			game.state.start('end')
+		}
+
 	},
 	collectStar: function(player, star) {
 		star.kill();
