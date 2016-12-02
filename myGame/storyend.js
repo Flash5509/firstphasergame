@@ -9,7 +9,7 @@ game_state.storyend.prototype = {
 },
 create: function() {
     game.add.sprite(0, 0, 'sky')
-		this.scoreText = game.add.text(16, 16, 'TO THE MOON! *farts* \nBillybob Cow has gone to the moon.\nHe has achieved his dreams!', {
+		this.scoreText = game.add.text(16, 16, 'TO THE MOON!! *farts* \nBillybob Cow has gone to the moon.\nHe has achieved his dreams!', {
 			fontSize: '32px',
 			fill: '#000'
 		});
