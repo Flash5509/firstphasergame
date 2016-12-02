@@ -95,7 +95,7 @@ game_state.main.prototype = {
 		}
 
 		game.physics.arcade.overlap(this.player, this.stars, this.collectStar, null, this);
-		if (this.score >= 5){
+		if (this.score >= 50){
 			game.state.start('end')
 		}
 
@@ -104,6 +104,14 @@ game_state.main.prototype = {
 		star.kill();
 		this.score++;
 		this.scoreText.text = this.score;
+		
+	
+			 var star = this.stars.create(Math.random() * 800, 0, 'star');
+			star.body.gravity.y = 300;
+			star.body.bounce.y = 0.70 + Math.random() * 0.2;
+			game.debug.body(star);
+			star.body.setSize(25, 25, 0, 0)
+		
 	}
 };
 game.state.add('main', game_state.main);
