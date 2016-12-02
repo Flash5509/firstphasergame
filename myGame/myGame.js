@@ -10,14 +10,14 @@ game_state.main.prototype = {
 	preload: function() {
 		game.load.image('sky', 'assets/nightsky.png');
 		game.load.image('ground', 'assets/platform.png');
-		game.load.image('star', 'assets/star.png');
+		game.load.image('taco', 'assets/taco.png');
 		game.load.spritesheet('dude', 'assets/Cow.png', 100, 100);
 
 	},
 
 	create: function() {
 		game.add.sprite(0, 0, 'sky');
-		game.add.sprite(0, 0, 'star');
+		game.add.sprite(0, 0, 'taco');
 		
 		this.platforms = game.add.group();
 		this.platforms.enableBody = true;
@@ -52,7 +52,7 @@ game_state.main.prototype = {
 		this.stars.enableBody = true; 
 		
 		for (var i = 0; i < 60; i++) {
-			var star = this.stars.create(i * 80, 0, 'star');
+			var star = this.stars.create(i * 80, 0, 'taco');
 			star.body.gravity.y = 300;
 			star.body.bounce.y = 0.70 + Math.random() * 0.2;
 			
