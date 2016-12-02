@@ -11,7 +11,7 @@ game_state.story.prototype = {
 
 create: function() {
     game.add.sprite(0, 0, 'sky')
-    		this.scoreText = game.add.text(16, 16, 'Help Billybob Cow go to the moon!\n To get him there, he must eat tacos.\nHelp him by collecting the tacos!\nYou need to get 50 tacos to get Billybob to the moon!\n Farting its way up the moon', {
+    		this.scoreText = game.add.text(16, 16, 'Help Billybob Cow go to the moon!\n To get him there, he must eat tacos.\nHelp him by collecting the tacos!\nYou need to get 75 tacos to get Billybob to the moon!\n Farting its way up the moon', {
 
 			fontSize: '32px',
 			fill: '#000'
