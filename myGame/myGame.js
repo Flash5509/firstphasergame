@@ -55,10 +55,8 @@ game_state.main.prototype = {
 			 var star = this.stars.create(i * 80, 0, 'star');
 			star.body.gravity.y = 300;
 			star.body.bounce.y = 0.70 + Math.random() * 0.2;
-			game.debug.body(star);
-			star.body.setSize(25, 25, 0, 0)
-			
-		}
+			star.body.setSize(20, 20, 0, 0)
+			}
 
 		this.score = 0;
 		this.scoreText = game.add.text(16, 16, 'score: 0', {
@@ -69,7 +67,6 @@ game_state.main.prototype = {
 	
 	
 	update: function() {
-		game.debug.body(this.player);
 		game.physics.arcade.collide(this.stars, this.platforms);
 		game.physics.arcade.collide(this.player, this.platforms);
 		
@@ -109,10 +106,9 @@ game_state.main.prototype = {
 			 var star = this.stars.create(Math.random() * 800, 0, 'star');
 			star.body.gravity.y = 300;
 			star.body.bounce.y = 0.70 + Math.random() * 0.2;
-			game.debug.body(star);
 			star.body.setSize(25, 25, 0, 0)
 		
 	}
 };
 game.state.add('main', game_state.main);
-game.debug.body(this.player);
+		// game.debug.body(this.player);
